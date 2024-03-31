@@ -1,0 +1,77 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ebe5ff; /* Light pastel pink */
+}
+
+.container {
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 20px; /* Rounded corners */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin: 50px auto; /* Centered with some margin from top */
+}
+
+h1 {
+    color: #ff69b4; /* Hot pink */
+}
+
+.input-container {
+    margin-bottom: 20px;
+}
+
+input[type="text"] {
+    padding: 8px;
+    margin: 5px;
+    width: calc(100% - 20px);
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #ff69b4; /* Hot pink */
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+button:hover {
+    background-color: #d1478e; /* Darker pink on hover */
+}
+
+#result {
+    margin-top: 20px;
+    font-size: 16px;
+    box-shadow: 6px 4px 6px 0px #000000;
+    border: 1px solid black;
+    
+}
+
+/* Media query for phones */
+@media (max-width: 500px) {
+    .container {
+        border-radius: 0;
+        margin: 20px auto;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        width: 80vw;
+        justify-content: center;
+        align-items: center;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    input[type="text"] {
+        width: calc(100% - 77px);
+    }
+}
