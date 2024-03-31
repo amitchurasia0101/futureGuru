@@ -46,7 +46,8 @@ button:hover {
 }
 
 #result {
-    margin-top: 20px;
+    margin: 20px;
+    padding: 11px;
     font-size: 16px;
     box-shadow: 6px 4px 6px 0px #000000;
     border: 1px solid black;
