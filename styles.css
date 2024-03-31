@@ -53,6 +53,10 @@ button:hover {
     border: 1px solid black;
     
 }
+.powered-by {
+    font-size: 12px;
+    color: #888;
+}
 
 /* Media query for phones */
 @media (max-width: 500px) {
