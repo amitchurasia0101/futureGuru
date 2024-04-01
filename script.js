@@ -1,37 +1,56 @@
-// Object to store the calculated friendship predictions
-var friendshipPredictions = {};
+var resultDisplayed = false;
 
-function calculateFriendship() {
-  var yourName = document.getElementById('yourName').value;
-  var friendName = document.getElementById('friendName').value;
+function calculateLovePercentage() {
+    if (resultDisplayed) {
+        alert("You've already calculated the love percentage. Please refresh the page to try again.");
+        return;
+    }
 
-  // Check if the prediction for this combination already exists
-  var predictionKey = yourName.toLowerCase() + '-' + friendName.toLowerCase();
-  if (friendshipPredictions[predictionKey]) {
-    displayResult(friendshipPredictions[predictionKey]);
-  } else {
-    // Calculate the prediction if it's not already stored
-    var prediction = (yourName.length + friendName.length) % 101;
-    friendshipPredictions[predictionKey] = prediction;
-    displayResult(prediction);
-  }
+    var yourName = document.getElementById("yourName").value.trim().toLowerCase();
+    var partnerName = document.getElementById("partnerName").value.trim().toLowerCase();
+
+    if (yourName === "" || partnerName === "") {
+        alert("Please enter both your name and your partner's name.");
+        return;
+    }
+
+    // Calculate love percentage (for demonstration purpose, this calculation is random)
+    var lovePercentage = Math.floor(Math.random() * 101); // Random number between 0 and 100
+
+    // Display result
+    var result = "💖 Your Love Percentage with " + partnerName.toUpperCase() + " is: " + lovePercentage + "% 💖\n";
+    result += getLovePrediction(lovePercentage) + "\n";
+    result += "Suggestions: " + getSuggestions(lovePercentage);
+    document.getElementById("result").innerText = result;
+
+    // Set resultDisplayed to true to prevent further calculations for the same persons
+    resultDisplayed = true;
 }
 
-function displayResult(prediction) {
-  var resultDiv = document.getElementById('result');
-  var message;
+function getLovePrediction(lovePercentage) {
+    if (lovePercentage >= 80) {
+        return "Wow! You two are a perfect match made in heaven! ✨✨✨";
+    } else if (lovePercentage >= 60) {
+        return "You have a good chance of having a successful relationship. ❤️🤞";
+    } else if (lovePercentage >= 40) {
+        return "It's worth giving it a try. Love can grow with time. 💕";
+    } else if (lovePercentage >= 20) {
+        return "You might face some challenges, but don't lose hope. 💔😕";
+    } else {
+        return "Hmm... It might be difficult to find common ground. 😔";
+    }
+}
 
-  if (prediction >= 80) {
-    message = "You two are best friends forever!";
-  } else if (prediction >= 60) {
-    message = "You have a strong friendship bond.";
-  } else if (prediction >= 40) {
-    message = "Your friendship has potential to grow.";
-  } else if (prediction >= 20) {
-    message = "You are acquaintances, but there's room for improvement.";
-  } else {
-    message = "It seems like you both are just getting to know each other.";
-  }
-
-  resultDiv.innerHTML = "<strong>Friendship Compatibility:</strong> " + prediction + "%<br>" + message;
+function getSuggestions(lovePercentage) {
+    if (lovePercentage >= 80) {
+        return "Make sure to cherish each other and keep the romance alive!";
+    } else if (lovePercentage >= 60) {
+        return "Communicate openly and support each other through ups and downs.";
+    } else if (lovePercentage >= 40) {
+        return "Invest time and effort into understanding each other better.";
+    } else if (lovePercentage >= 20) {
+        return "Seek guidance from a trusted counselor or therapist if needed.";
+    } else {
+        return "Focus on self-love and personal growth before seeking a relationship.";
+    }
 }
